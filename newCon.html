@@ -17,7 +17,7 @@
   <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
 
 
-  
+
 
 
 </head>
@@ -31,82 +31,85 @@
 
   <!-- Add package section, image upload section -->
 
-  <div class="form-container">
-    <div class="form">
-      <div class="heading">
-        <!-- <img src="images/logo.png" alt="" /> -->
-        <h1>Digital <b style="color: rgb(105, 113, 215)"> BD</b> | New Connection</h1>
-      </div>
+  <form name="contact" method="POST" data-netlify="true">
+    <div class="form-container">
+      <div class="form">
+        <div class="heading">
+          <!-- <img src="images/logo.png" alt="" /> -->
+          <h1>Digital <b style="color: rgb(105, 113, 215)"> BD</b> | New Connection</h1>
+        </div>
 
-      <div class="form-group">
-        <img src="images/placeholder.png" onchange="displayImage(this)" onclick="triggerClick()" id="profileDisplay" />
+        <div class="form-group">
+          <img src="images/placeholder.png" onchange="displayImage(this)" onclick="triggerClick()"
+            id="profileDisplay" />
 
-        <input type="file" name="uploadfile" id="profileImage" style="display: none" required />
-        <script src="pro_img.js"></script>
-      </div>
+          <input type="file" name="uploadfile" id="profileImage" style="display: none" required />
+          <script src="pro_img.js"></script>
+        </div>
 
-      <div class="wrap_form">
-        <div class="f1">
-          <label>Full Name</label>
+        <div class="wrap_form">
+          <div class="f1">
+            <label>Full Name</label>
+            <input type="text" />
+            <span class="focus-input"></span>
+          </div>
+
+          <div class="f2">
+            <label>Phone Number</label>
+            <input type="number" />
+            <span class="focus-input"></span>
+          </div>
+        </div>
+
+        <div class="wrap2">
+          <label>Email</label>
           <input type="text" />
-          <span class="focus-input"></span>
+          <span class="focus-input2"></span>
         </div>
 
-        <div class="f2">
-          <label>Phone Number</label>
-          <input type="number" />
-          <span class="focus-input"></span>
+        <div class="wrap2">
+          <label>Address</label>
+          <input type="text" />
+          <span class="focus-input2"></span>
         </div>
+
+        <div class="wrap_form">
+          <div class="f1">
+            <label>Number of MBPS</label>
+            <input type="number" id="pksize" />
+            <span class="focus-input"></span>
+          </div>
+
+          <div class="f2">
+            <label>Package Name</label>
+            <input type="text" id="pkname" />
+            <span class="focus-input"></span>
+          </div>
+        </div>
+
+
+        <div class="nidGrid">
+          <div class="nid">
+            <img src="images/nid.jpg" onchange="displayImage(this)" onclick="triggerNID()" id="nidDisplay" />
+
+            <input type="file" name="uploadfile" id="nidImage" style="display: none" required />
+            <script src="nid_img.js"></script>
+          </div>
+
+          <div class="nid2">
+            <img src="images/nid2.jpg" onchange="displayImage(this)" onclick="triggerNID2()" id="nidDisplay2" />
+
+            <input type="file" name="uploadfile" id="nidImage2" style="display: none" required />
+            <script src="nid_img2.js"></script>
+          </div>
+        </div>
+
+
+
+        <button class="form-btn">Submit</button>
       </div>
-
-      <div class="wrap2">
-        <label>Email</label>
-        <input type="text" />
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap2">
-        <label>Address</label>
-        <input type="text" />
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap_form">
-        <div class="f1">
-          <label>Number of MBPS</label>
-          <input type="number" id="pksize" />
-          <span class="focus-input"></span>
-        </div>
-
-        <div class="f2">
-          <label>Package Name</label>
-          <input type="text" id="pkname" />
-          <span class="focus-input"></span>
-        </div>
-      </div>
-
-
-      <div class="nidGrid">
-        <div class="nid">
-          <img src="images/nid.jpg" onchange="displayImage(this)" onclick="triggerNID()" id="nidDisplay" />
-
-          <input type="file" name="uploadfile" id="nidImage" style="display: none" required />
-          <script src="nid_img.js"></script>
-        </div>
-
-        <div class="nid2">
-          <img src="images/nid2.jpg" onchange="displayImage(this)" onclick="triggerNID2()" id="nidDisplay2" />
-
-          <input type="file" name="uploadfile" id="nidImage2" style="display: none" required />
-          <script src="nid_img2.js"></script>
-        </div>
-      </div>
-
-
-
-      <button class="form-btn">Submit</button>
     </div>
-  </div>
+  </form>
 
 
 </body>
