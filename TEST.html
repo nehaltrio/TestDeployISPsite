@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Movie Poster</title>    
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: black;
+        }
+      
+
+        #poster {
+            /* Full height */
+            height: calc(100% - 38px); 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-color: black;
+        }
+        #bottom_banner {
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.4);
+            width: 100%;
+            text-align: center;
+        }
+            #bottom_banner p {
+                font-size: 25px;
+                margin: 5px;
+                color: white;
+                font-family: 'Orbitron', sans-serif;
+            }
+    </style>
+</head>
+<body  onload="startPoster()">
+<script language="javascript" type="text/javascript">
+
+var mySlideShow = null;
+
+function startPoster(){
+    var ws = new WebSocket('ws://localhost:9090/jsonrpc'); //IP address of your Kodi / libreELEC instance
+    var regex = /(http.*\w)/;
+    var contentType;
+
+    ws.onopen = function(event) {
+      send_message("Player.GetActivePlayers");
+    }
+    
+    ws.onclose = function(){
+        // Try to reconnect in 20 seconds
+        setTimeout(function(){startPoster()}, 20000);
+    };
+
+    ws.onmessage = function(event) {
+      var j = JSON.parse(event.data);
+      
+      if (j.id) // response
+      {
+        switch (j.id) {
+          case "Player.GetActivePlayers":
+            var r = j.result[0];
+            try {
+                
+                if (r.type == 'video') {
+                  contentType = 'video';
+                  send_message("Player.GetItem", {
+                    "properties": ["title", "album", "artist", "season", "episode", "duration", "showtitle", "tvshowid", "file", "fanart", "streamdetails", "art"],
+                    "playerid": r.playerid,
+                  });
+                } 
+                break;
+            }
+            catch(err) {
+            
+            }
+          case "Player.GetItem":
+            var r = j.result.item;
+            console.log
+
+            try {
+                if (contentType == 'video') {
+                    document.getElementById("poster").style.backgroundImage = "url('" + regex.exec(decodeURIComponent(r.art["poster"]))[1] + "')";
+                } 
+                break;
+            }
+            catch(err) {
+
+            }
+          case "VideoLibrary.GetMovies":
+            var r = j.result.limits;
+            var numMaxVideoID = r.total - 1;
+            var randVideoID = randomIntFromInterval(0, numMaxVideoID);
+            console.log(randVideoID)
+                
+            send_message("VideoLibrary.GetMovieDetails", {
+                "properties": ["mpaa", "tagline", "art"],
+                "movieid": randVideoID
+            });     
+
+          case "VideoLibrary.GetMovieDetails":
+            try {
+                var r = j.result.moviedetails;
+                console.log
+            
+                document.getElementById("poster").style.backgroundImage = "url('" + regex.exec(decodeURIComponent(r.art["poster"]))[1] + "')";
+            }
+            catch(err) {
+
+            }
+        }
+      } else // notification
+      {
+        switch (j.method) {
+          case "Player.OnAVStart":
+            endSlideShow();
+            send_message("Player.GetActivePlayers");
+              document.getElementById("banner_text").innerHTML = 'Now Showing';
+              break;
+          case "Player.OnPause":
+            // add code for pauseHuh
+            break;
+          case "Player.OnStop":
+            // add code for random slideshow
+            send_message("VideoLibrary.GetMovies");
+            mySlideShow = setInterval(startSlideShow, 30000);
+            document.getElementById("banner_text").innerHTML = 'Available in Movie Library';
+            break;
+        }
+      }
+    }
+
+    function send_message(method, params) {
+      var msg = {
+        "jsonrpc": "2.0",
+        "method": method,
+        "id": method
+      };
+      if (params) {
+        msg.params = params;
+      }
+      ws.send(JSON.stringify(msg));
+    }
+    
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    
+    function startSlideShow() {
+        send_message("VideoLibrary.GetMovies");
+    }
+    
+    function endSlideShow() {
+        clearInterval(mySlideShow);
+        mySlideShow = 0;
+    }
+}
+</script>
+<div id="poster"></div>
+<div id="bottom_banner"><p id="banner_text">Nothing to Show</p></div>
+
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam animi ipsum atque tempore quam ducimus voluptatem inventore reprehenderit! Placeat hic esse, ea eveniet ex iste reprehenderit cumque quis unde fugit?
+</body>
+</html>

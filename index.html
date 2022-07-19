@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigitalBD</title>
+
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c4254e24a8.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+  <script src="/path/to/flickity.pkgd.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="test.css" />
+
+  <script>
+    $(document).ready(function () {
+      $("a").on("click", function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800,
+            function () {
+              window.location.hash = hash;
+            }
+          );
+        }
+      });
+    });
+  </script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <form action="">
+
+        <input type="text" placeholder="User Name">
+        <input type="text" placeholder="Complain">
+        <input type="submit" value="Submit">
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <header class="shadow">
+    <div class="logo">
+      <a href="#">
+        <img src="images/logo.png" width="60px" alt="logo" />
+      </a>
+    </div>
+    <nav class="nav" id="nav-menu">
+      <ion-icon name="close-outline" class="header_close" id="close-menu"></ion-icon>
+
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="index.html" class="link link-theme link-arrow">Home</a>
+        </li>
+        <li class="nav_item">
+          <a href="#package" class="link link-theme link-arrow">Packages</a>
+        </li>
+        <li class="nav_item">
+          <a href="#movie" class="link link-theme link-arrow">Movies</a>
+        </li>
+        <li class="nav_item">
+          <a href="" class="link link-theme link-arrow">Live TV</a>
+        </li>
+        <li class="nav_item">
+          <a id="myBtn" style="cursor: pointer;" class="link link-theme link-arrow">Complain</a>
+        </li>
+        <li class="nav_item">
+          <a href="" class="link link-theme link-arrow">Payment</a>
+        </li>
+        <li class="nav_item">
+          <a href="#contact" class="link link-theme link-arrow">Contact</a>
+        </li>
+        <li class="nav_item">
+          <a href="#about" class="link link-theme link-arrow">About Us</a>
+        </li>
+        <li class="nav_item olduser">
+          <a href="oldUser.html" style="color: white;">Old User</a>
+        </li>
+      </ul>
+    </nav>
+    <ion-icon name="menu-outline" class="header_toggle" id="toggle-menu"></ion-icon>
+  </header>
+  <script src="app.js"></script>
+
+  <div class="forimg">
+    <div class="banner-1">
+      <img src="testimg/slide4.jpeg" alt="elephant" />
+      <div class="text-box text-box4">
+        <h1>DigitalBD</h1>
+        <span></span>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ea
+          veritatis, ipsum reprehenderit nemo totam fugit ut. Rerum eum autem
+          placeat ipsum corporis commodi similique dolor enim, excepturi
+          perspiciatis esse?
+        </p>
+      </div>
+    </div>
+
+    <div class="banner-2">
+      <img src="testimg/slide1.jpg" alt="elephant" />
+      <div class="text-box text-box1">
+        <h1>Explore Over World Broadband</h1>
+        <span></span>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ea
+          veritatis, ipsum reprehenderit nemo totam fugit ut. Rerum eum autem
+          placeat ipsum corporis commodi similique dolor enim, excepturi
+          perspiciatis esse?
+        </p>
+      </div>
+    </div>
+
+    <div class="banner-3">
+      <img src="testimg/slide3.jpg" alt="elephant" />
+      <div class="text-box text-box3">
+        <h1>Journey With Fast Internet</h1>
+        <span></span>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ea
+          veritatis, ipsum reprehenderit nemo totam fugit ut. Rerum eum autem
+          placeat ipsum corporis commodi similique dolor enim, excepturi
+          perspiciatis esse?
+        </p>
+      </div>
+    </div>
+
+    <div class="banner-4">
+      <img src="testimg/slide2.jpg" alt="elephant" />
+      <div class="text-box text-box2">
+        <h1>All Entertainment One Solutions</h1>
+        <span></span>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ea
+          veritatis, ipsum reprehenderit nemo totam fugit ut. Rerum eum autem
+          placeat ipsum corporis commodi similique dolor enim, excepturi
+          perspiciatis esse?
+        </p>
+      </div>
+    </div>
+
+    <div class="cont-btn"> <a href="newCon.html">Get your Connection</a></div>
+  </div>
+
+
+  <div class="service">
+    <div class="servtext">
+      <div class="border2"></div>
+      <p>Our Services</p>
+      <span>
+        <b style="color: rgb(106, 113, 215)"> Explore Our </b> Best <br />
+        Services</span>
+    </div>
+
+    <div class="servcards">
+      <div class="scard" style="background-color: #7581ff23">
+        <img src="testimg/wifi-router.png" alt="icon" />
+        <h3>Broadband</h3>
+        <p>We provide the fastest internet broadband connection</p>
+      </div>
+      <div class="scard">
+        <img src="testimg/tv-program.png" alt="icon" />
+        <h3>Live TV</h3>
+        <p>We provide the fastest internet broadband connection</p>
+      </div>
+      <div class="scard">
+        <img src="testimg/video.png" alt="icon" />
+        <h3>Movies</h3>
+        <p>We provide the fastest internet broadband connection</p>
+      </div>
+      <div class="scard">
+        <img src="testimg/search-engine.png" alt="icon" />
+        <h3>Browsing</h3>
+        <p id="package">We provide the fastest internet broadband connection</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="internet_package">
+    <div class="package_text">
+      <p>Our Best Deals</p>
+      <div class="expack">
+        <b style="color: rgb(105, 113, 215)">Explore Our</b> Best Deals
+      </div>
+    </div>
+
+    <div class="package_card_grid">
+      <div class="package_card">
+        <h1>Bronze</h1>
+        <p class="cost"><span class="costnum"> 599 </span> Tk/Month</p>
+        <hr style="width: 90%; margin: auto" />
+        <p class="mbps"><span class="mbpsnum">5</span> Mbps</p>
+        <p style="line-height: 2rem">
+          <img src="testimg/correct.png" alt="" width="15px" /> 80Mbps Youtube
+          <br />
+          <img src="testimg/correct.png" alt="" width="15px" /> 80Mbps BDIX &
+          FTP <br />
+          <img src="testimg/correct.png" alt="" width="15px" /> Real IP
+        </p>
+        <div class="getbtn">
+          <a href="newCon.html" id="bronze" style="color: rgb(255, 255, 255)">Get Now</a>
+        </div>
+      </div>
+
+      <div class="package_card">
+        <h1>Silver</h1>
+        <p class="cost"><span class="costnum">999 </span> Tk/Month</p>
+        <hr style="width: 90%; margin: auto" />
+        <p class="mbps"><span class="mbpsnum">10</span> Mbps</p>
+        <p style="line-height: 2rem">
+          <img src="testimg/correct.png" alt="" width="15px" /> 80Mbps Youtube
+          <br />
+          <img src="testimg/correct.png" alt="" width="15px" /> 80Mbps BDIX &
+          FTP <br />
+          <img src="testimg/correct.png" alt="" width="15px" /> Real IP
+        </p>
+        <div class="getbtn">
+          <a href="newCon.html" id="silver" style="color: rgb(255, 255, 255)">Get Now</a>
+        </div>
+      </div>
+
+      <div class="package_card">
+        <h1>Gold</h1>
+        <p class="cost"><span class="costnum"> 1499 </span> Tk/Month</p>
+        <hr style="width: 90%; margin: auto" />
+        <p class="mbps"><span class="mbpsnum">15</span> Mbps</p>
+        <p style="line-height: 2rem">
+          <img src="testimg/correct.png" alt="" width="15px" /> 80Mbps Youtube
+          <br />
+          <img src="testimg/correct.png" alt="" width="15px" /> 80Mbps BDIX &
+          FTP <br />
+          <img src="testimg/correct.png" alt="" width="15px" /> Real IP
+        </p>
+        <div class="getbtn" id="movie">
+          <a href="newCon.html" id="gold" style="color: rgb(255, 255, 255)">Get Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="formData.js"></script>
+
+
+
+
+
+
+  <div class="mov_cont">
+
+
+    <div class="backMov"></div>
+
+
+    <p>Watch Now</p>
+    <p class="mov_text">Our FTP Has
+      <b style="color: rgb(105, 113, 215)"> Unlimited Movies </b>
+    </p>
+
+    <a href="http://circleftp.net/" target="_blank">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </a>
+    <script src="movie.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 50,
+        grabCursor: true,
+        loop: true,
+        loopFillGroupWithBlank: true,
+
+
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+        },
+      });
+    </script>
+
+  </div>
+
+  <section id="about"></section>
+  <div class="service2">
+    <span class="border4"></span>
+    <p class="servtext1">Why Choose Us</p>
+    <p class="servtext2">
+      <b style="color: #5a61cb"> Best Internet Provider </b> In your Area
+    </p>
+
+    <div class="servicetext">
+      <br />
+      <p style="line-height: 2.5rem">
+        <img src="testimg/correct.png" alt="" width="14px" /> Ultra-fast and
+        ultra-reliable connection <br />
+        <img src="testimg/correct.png" alt="" width="14px" /> All kinds of
+        entertainment in one place <br />
+        <img src="testimg/correct.png" alt="" width="14px" /> Provides best service 24 hours available <br />
+        <img src="testimg/correct.png" alt="" width="14px" /> Flexible pricing
+        plans and profitable bundles
+      </p>
+    </div>
+    <div class="servicearea">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11474.048727147303!2d90.5039181632459!3d23.69746591136511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b7f597a2be9f%3A0xc38a9eb67caee439!2sDigital%20BD.NET!5e0!3m2!1sen!2sjp!4v1656251054928!5m2!1sen!2sjp"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+  </div>
+
+
+  <footer id="contact">
+    <div class="rowf">
+      <div class="colf">
+        <img src="images/logo.png" alt="" class="logof" />
+        <h2>DigitalBD</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fugit
+          a iure sunt laboriosam quae iste voluptatum assumenda, corporis
+          odit omnis qui ipsum porro ipsam veniam consequatur velit
+          cupiditate dignissimos.
+        </p>
+      </div>
+      <div class="colf">
+        <h3>
+          Office
+          <div class="underline"><span></span></div>
+        </h3>
+        <p>Painadi New Moholla</p>
+        <p>Shiddirganj, Narayanganj</p>
+        <p>Dhaka, Bangladesh</p>
+        <p class="emailid">digitalbd@gmail.com</p>
+        <h4>+8801712358652</h4>
+      </div>
+      <div class="colf">
+        <h3>
+          Links
+          <div class="underline"><span></span></div>
+        </h3>
+        <ul>
+          <li><a href="http://circleftp.net/">Movies</a></li>
+          <li><a href="">Live TV</a></li>
+          <li><a href="">Packages</a></li>
+          <li><a href="">About us</a></li>
+          <li><a href="">Contacts</a></li>
+        </ul>
+      </div>
+      <div class="colf">
+        <h3>
+          Get In Touch
+          <div class="underline"><span></span></div>
+        </h3>
+        <form class="formf">
+          <i class="far fa-envelope"></i>
+          <input type="email" placeholder="Enter your email id" required />
+          <input type="text" placeholder="Enter your message" required />
+          <button type="submit"><i class="fas fa-arrow-right"> </i></button>
+        </form>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-whatsapp"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <p class="copyright">Ahmed Ajmine Nehal © 2021 - All rights Reserved</p>
+  </footer>
+
+
+  <script src="modal.js"></script>
+</body>
+
+</html>
